@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_migrate import Migrate
+from werkzeug.security import generate_password_hash
 from app.models import User, db
 
 # Initialize extensions
@@ -25,6 +26,18 @@ def create_app():
     # Import models after app and db are initialized
     with app.app_context():
         from app import models
+
+        # Create the default admin user if it doesn't exist
+        if not User.query.filter_by(email="admin@local.domain").first():
+            default_admin = User(
+                username="admin",
+                email="admin@local.domain",
+                password_hash=generate_password_hash("changeme"),
+                role="admin"
+            )
+            db.session.add(default_admin)
+            db.session.commit()
+            print("Default admin user created: admin@local.domain / changeme")
 
     # Register blueprints
     from app.routes.auth import auth_bp

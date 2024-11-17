@@ -10,6 +10,9 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(128), nullable=False)
     role = db.Column(db.String(20), nullable=False)
 
+    def is_admin(self):
+        return self.role == "admin"
+
 class ComplianceStandard(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     section = db.Column(db.String(50), nullable=False)
