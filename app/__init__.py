@@ -1,3 +1,14 @@
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
+from flask_migrate import Migrate
+from werkzeug.security import generate_password_hash
+from app.models import User, db
+
+# Initialize extensions
+db = SQLAlchemy()
+login_manager = LoginManager()
+
 def create_app():
     app = Flask(__name__)
     app.config.from_object("config.Config")
