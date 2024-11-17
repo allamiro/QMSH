@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_migrate import Migrate
+from app.models import User, db
 
 # Initialize extensions
 db = SQLAlchemy()
@@ -11,12 +12,17 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object("config.Config")
 
-    # Initialize extensions with app context
+    # Initialize extensions
     db.init_app(app)
     login_manager.init_app(app)
     Migrate(app, db)
 
-    # Import models after app and extensions are initialized
+    # User loader for Flask-Login
+    @login_manager.user_loader
+    def load_user(user_id):
+        return User.query.get(int(user_id))
+
+    # Import models after app and db are initialized
     with app.app_context():
         from app import models
 
