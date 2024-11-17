@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Compliance Dashboard</title>
-</head>
-<body>
-    <h1>Compliance Dashboard</h1>
-    <ul>
-        {% for standard in standards %}
-            <li>{{ standard.section }} - <a href="/compliance/track/{{ standard.id }}">Track</a></li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Compliance Dashboard{% endblock %}
+
+{% block content %}
+<h1>Compliance Dashboard</h1>
+<p>Welcome to the compliance dashboard.</p>
+{% endblock %}
