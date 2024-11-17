@@ -27,6 +27,9 @@ def create_app():
     with app.app_context():
         from app import models
 
+        # Ensure the database tables are created
+        db.create_all()
+
         # Create the default admin user if it doesn't exist
         if not User.query.filter_by(email="admin@local.domain").first():
             default_admin = User(
