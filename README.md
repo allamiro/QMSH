@@ -18,7 +18,7 @@ Quality improvement is directly related to the service delivery approach, level 
 Track compliance against different  standards, divided into key sections:
 
 ### Saudi Arabia - CBAHI 
-* Compliance :
+#### Compliance :
 - Leadership (LD)
 - Human Resources (HR)
 - Medical Staff (MS)
@@ -29,12 +29,12 @@ Track compliance against different  standards, divided into key sections:
 - Facility Management and Safety (FMS)
 - Each section can include automated checklists, evaluation forms, and real-time tracking for compliance against Essential Safety Requirements (ESRs).
   
-* Audit Module:
+#### Audit Module:
 - Automated Audits: Scheduled audits based on CBAHI’s standards with specific checks for each area (e.g., medication management, patient safety).
 - Manual Audits: Allow auditors to input data from physical inspections and interviews.
 - Audit Logs: Maintain a log of completed audits, showing the compliance status, any deficiencies, and corrective actions. 
 
-* Corrective Action Management (CAP):
+#### Corrective Action Management (CAP):
 - A system to log non-compliance issues and implement a Corrective Action Plan (CAP).
 - Link the CAP to specific CBAHI requirements, and track progress on resolving the issue.
 
