@@ -23,11 +23,12 @@ def create_app():
     def load_user(user_id):
         return User.query.get(int(user_id))
 
-    # Use app context for database initialization and user creation
+    # Ensure database initialization is inside an app context
     with app.app_context():
+        # Import models after app and db are initialized
         from app import models
 
-        # Ensure the database tables are created
+        # Create database tables
         db.create_all()
 
         # Create the default admin user if it doesn't exist
